@@ -232,5 +232,5 @@ List.prototype = {
   }
 }
 
-// export for testing
+// export for hashMap
 module.exports = List;
