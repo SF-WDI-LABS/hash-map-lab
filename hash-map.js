@@ -34,7 +34,11 @@ HashMap.prototype = {
 
   put: function(key, value) {
     var arr_pos = this.toHash(key);
-    this.h_array[arr_pos].prepend(key, value);
+    if (this.h_array[arr_pos].find(key) === "Key/Value pair not found"){
+      this.h_array[arr_pos].prepend(key, value);
+    } else {
+      return "Key already exists.";
+    }
   },
 
   get: function(key) {
@@ -45,6 +49,11 @@ HashMap.prototype = {
   remove: function(key) {
     var arr_pos = this.toHash(key);
     return this.h_array[arr_pos].delete(key);
+  },
+
+  set: function(key, value) {
+    var arr_pos = this.toHash(key);
+    return this.h_array[arr_pos].update(key, value);
   },
 
   keySet: function() {

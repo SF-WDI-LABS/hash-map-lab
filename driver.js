@@ -15,6 +15,11 @@ hMap.put('fruit', 'apple');
 var found = hMap.get('fruit');
 console.log('Found:', found);
 
+/* Demonstrate the set() method */
+var set = hMap.set('fruit', 'banana');
+console.log('Set:', set);
+
+
 /* Demonstrate the remove() method */
 var deleted = hMap.remove('fruit');
 console.log('Deleted;',  deleted);
