@@ -100,9 +100,10 @@ List.prototype = {
   },
 
   /*
-    Method: each
-    Traverse the list. For each Node, call the callback function on that Node.
-    Example: callback(current);
+    Method: find
+    Traverse the list. If a Node with the key passed is found, return a new 
+    object containing a key "key" with the key of the found Node and a key 
+    "value" with the data of the found Node. 
   */
   find: function(key) {
     var current = this.head;
