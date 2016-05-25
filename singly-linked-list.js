@@ -118,6 +118,23 @@ List.prototype = {
     }
     return "Key/Value pair not found";
   },
+  
+  /*
+    Method: update(key, data)
+    Traverse the List. Find the Node with key key and update its data to data.
+    If no Node in the List has this key, return undefined.
+  */
+  update: function(key, data) {
+    var current = this.head;
+    while (current !== null) {
+      if (current.key === key) {
+        current.data = data;
+        return current.data;
+      }
+      current = current.next;
+    }
+    return undefined;
+  },
 
   /*
     Method: indexOf
