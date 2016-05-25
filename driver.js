@@ -15,6 +15,9 @@ hMap.put('fruit', 'apple');
 var found = hMap.get('fruit');
 console.log('Found:', found);
 
+/* TODO: Implement the `set` method! */
+// hMap.set('fruit', 'banana');
+
 /* Demonstrate the remove() method */
 var deleted = hMap.remove('fruit');
 console.log('Deleted;',  deleted);
