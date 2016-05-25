@@ -32,6 +32,7 @@ HashMap.prototype = {
       }) % arr_length;
   },
 
+  // TODO: Update this method so that it doesn't allow adding duplicate keys
   put: function(key, value) {
     var arr_pos = this.toHash(key);
     this.h_array[arr_pos].prepend(key, value);
