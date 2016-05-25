@@ -46,6 +46,9 @@ HashMap.prototype = {
     var arr_pos = this.toHash(key);
     return this.h_array[arr_pos].delete(key);
   },
+  
+  // Implement `set` function here! 
+  // It should change value associated with the `key` passed in, to the `value` passed in.
 
   keySet: function() {
     return this.h_array
