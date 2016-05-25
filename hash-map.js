@@ -53,7 +53,7 @@ HashMap.prototype = {
 
   set: function(key, value) {
     var arr_pos = this.toHash(key);
-    return this.h_array[arr_pos].update(key, value);
+    this.h_array[arr_pos].update(key, value);
   },
 
   keySet: function() {
