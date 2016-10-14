@@ -179,3 +179,9 @@ Working in that code:
 
 - update the `put` method so that it will not store duplicate keys
 - implement a `set` method to change the value associated with a key
+
+### Closing Thoughts
+
+1. What is a hash map?
+
+1. What are the Big O time complexities of inserting something into a hash map, deleting something from it, and searching for something (or looking something up) by key?
