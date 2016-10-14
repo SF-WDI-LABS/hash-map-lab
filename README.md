@@ -32,7 +32,7 @@ Location: SF
 
 ### Hash Map Operations
 
-Hash maps let us add key-value pairs, look up the value for a key, and delete a key-value pair. 
+Hash maps let us add key-value pairs, look up the value for a key, and delete a key-value pair.
 
 
 ### Structure
@@ -124,7 +124,7 @@ function hash(key, arrayLength) {
     .reduce(function(prev, curr) {
       return prev + curr;
     }) % arrayLength;
-},
+};
 ```
 </details>
 
@@ -135,16 +135,45 @@ Hash maps promise `O(1)` lookup, insert, and delete.  In order to get fast perfo
 1. How can we change the hash function so that it still takes `O(1)` time *and* still distributes keys into buckets more evenly than our previous hash function that just used the first letter?
 
 <details><summary>click for an idea</summary>
-Looking at some [data](http://home.uchicago.edu/~jsfalk/misc/baby_names/), we can see there are pretty skewed percentages for just the first or last letter of a name, so using multiple letters seems like a decent idea. But using a variable number of letters based on the length of the string takes our time above `O(1)`.  A potential middle ground is choosing to use the first 3 letters.
+Looking at some [data](http://home.uchicago.edu/~jsfalk/misc/baby_names/), we can see there are pretty skewed percentages for just the first or last letter of a name, so using multiple letters seems like a decent idea. But using a variable number of letters based on the length of the string takes our time above `O(1)`.  A potential middle ground is choosing to use the first 2 or 3 letters.  We can also very reduce the time it takes to run `%` by choosing an array length that's a power of 2.
+
+
+```js
+function hash(key) {
+  // choosing array length 16
+  var len = key.length;
+  if (len === 0){
+    return 0;
+  } else if (len === 1){
+    return (key.charCodeAt(0) | 16) % 16;  // | is a bitwise OR
+  } else {
+    var letterSum = key.charCodeAt(0) + key.charCodeAt(1);
+    return (letterSum | 16) % 16;
+  }
+};
+```
+
+[more on bitwise operators in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators)
 </details>
 
+Of course, if we knew ahead of time exactly which developers we'd need to hash, we could make a perfect hashing function that's `O(1)`, distributes names evenly, and always gives the same results for the same input:
 
+```rb
+def hash(key)
+  if key == "Alicia"
+    0
+  elsif key == "Andrew C"
+    1
+  elsif key == "Andrew V"
+    2
+  #....
+```
 
 
 ### Coding Challenge
 
 
-In the `javascript/starter-code` directory, you'll find a basic hash map implementation that's based on a JavaScript singly linked list.
+In the `javascript/starter-code` directory, you'll find a basic hash map implementation that's based on a JavaScript singly linked list.  Note that this singly linked list implementation stores a `key` and some  `data` in each node.
 
 Working in that code:
 
