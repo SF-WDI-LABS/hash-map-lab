@@ -138,22 +138,6 @@ Hash maps promise `O(1)` lookup, insert, and delete.  In order to get fast perfo
 Looking at some [data](http://home.uchicago.edu/~jsfalk/misc/baby_names/), we can see there are pretty skewed percentages for just the first or last letter of a name, so using multiple letters seems like a decent idea. But using a variable number of letters based on the length of the string takes our time above `O(1)`.  A potential middle ground is choosing to use the first 2 or 3 letters.  We can also very reduce the time it takes to run `%` by choosing an array length that's a power of 2.
 
 
-```js
-function hash(key) {
-  // choosing array length 16
-  var len = key.length;
-  if (len === 0){
-    return 0;
-  } else if (len === 1){
-    return (key.charCodeAt(0) | 16) % 16;  // | is a bitwise OR
-  } else {
-    var letterSum = key.charCodeAt(0) + key.charCodeAt(1);
-    return (letterSum | 16) % 16;
-  }
-};
-```
-
-[more on bitwise operators in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators)
 </details>
 
 Of course, if we knew ahead of time exactly which developers we'd need to hash, we could make a perfect hashing function that's `O(1)`, distributes names evenly, and always gives the same results for the same input:
