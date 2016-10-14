@@ -30,7 +30,12 @@ Location: SF
 - Perform runtime analysis on the hash map data structure.
 
 
-### Hash Map Structure
+### Hash Map Operations
+
+Hash maps let us add key-value pairs, look up the value for a key, and delete a key-value pair. 
+
+
+### Structure
 
 Hash maps are based on arrays. Each key is mapped to a slot in the array with a "hash" function.
 
