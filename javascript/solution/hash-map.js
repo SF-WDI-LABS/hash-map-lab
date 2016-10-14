@@ -21,15 +21,15 @@ HashMap.prototype = {
     });
   },
 
-  toHash: function(key, arr_length) {
-    arr_length = arr_length | 13;
+  toHash: function(key, arrayLength) {
+    arrayLength = arrayLength || 13;
     return key
       .split('').map(function (letter){
         return letter.charCodeAt();
       })
       .reduce(function(prev, curr) {
         return prev + curr;
-      }) % arr_length;
+      }) % arrayLength;
   },
 
   // TODO: Update this method so that it doesn't allow adding duplicate keys
