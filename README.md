@@ -1,5 +1,5 @@
 <!--
-Creator: WDI Team
+Creator: WDI Team (Justin)
 Last edited by: Brianna
 Location: SF
 -->
@@ -93,7 +93,7 @@ def hash(key)
 end
 ```
 
-It's not very good.  **Why?** Hint: draw out the resulting structure after a few insertions. 
+It's not very good.  **Why?** Hint: draw out the resulting structure after a few insertions.
 
 <details>
   <summary>click for explanation</summary>
@@ -140,7 +140,7 @@ Hash maps promise `O(1)` lookup, insert, and delete.  In order to get fast perfo
 1. What is the Big O time complexity of the function above (in the spoiler)? How does it depend on the length of the `key` string(s)?
 
 <details><summary>click for an idea</summary>
-The `split`, `map`, and `reduce` functions are taking an action on each letter of the key.  If we say `n` is the length of the longest key string, then that means this hash function is at least `O(n)`.  That's not compatible with the `O(1)` insertion, lookup, and delete that a hash map promises. 
+The `split`, `map`, and `reduce` functions are taking an action on each letter of the key.  If we say `n` is the length of the longest key string, then that means this hash function is at least `O(n)`.  That's not compatible with the `O(1)` insertion, lookup, and delete that a hash map promises.
 </details>
 
 1. How can we change the hash function so that it still takes `O(1)` time *and* still distributes keys into buckets more evenly than our previous hash function (the one that just used the first letter)?
@@ -148,9 +148,9 @@ The `split`, `map`, and `reduce` functions are taking an action on each letter o
 <details><summary>click for an idea</summary>
 Looking at some [data](http://home.uchicago.edu/~jsfalk/misc/baby_names/), we can see there are pretty skewed percentages for just the first or last letter of a name, so using multiple letters seems like a decent idea. But using a variable number of letters based on the length of the string takes our time above `O(1)`.  A potential middle ground is choosing to use the first 2 or 3 letters.  
 
-On the other hand, we could just say that all our keys will be below a certain number of characters - maybe 32 character is a reasonable limit for a first name. Then our `O(n)` from above is actually capped at `O(32)`, which is the same as `O(1)`. Setting a limit on the variable length turns it into a constant for this big O analysis. 
+On the other hand, we could just say that all our keys will be below a certain number of characters - maybe 32 character is a reasonable limit for a first name. Then our `O(n)` from above is actually capped at `O(32)`, which is the same as `O(1)`. Setting a limit on the variable length turns it into a constant for this big O analysis.
 
-Because of how computers store data in binary format, we can also reduce the time it takes to run `%` by choosing an array length that's a power of 2. This doesn't affect the big O analysis, and in fact its practical effect is quite small. 
+Because of how computers store data in binary format, we can also reduce the time it takes to run `%` by choosing an array length that's a power of 2. This doesn't affect the big O analysis, and in fact its practical effect is quite small.
 </details>
 
 Of course, if we knew ahead of time exactly which developers we'd need to hash, we could make a perfect hashing function that's `O(1)`, distributes names evenly, and always gives the same results for the same input:
