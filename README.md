@@ -163,8 +163,9 @@ def hash(key)
     1
   elsif key == "Brianna" || key == "Cory"
     2
-  elsif key == "Ilias" || key == "Alex" 
+  elsif key == "Alex" || key == "Ben" 
     3
+  elsif key == "Del" || key == "Ilias"
   #....
 ```
 
