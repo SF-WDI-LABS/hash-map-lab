@@ -157,12 +157,14 @@ Of course, if we knew ahead of time exactly which developers we'd need to hash, 
 
 ```rb
 def hash(key)
-  if key == "Alicia" || key == "Zach"
+  if key == "Michelle" || key == "Nathan"
     0
-  elsif key == "Andrew" || key == "Will"
+  elsif key == "Jean" || key == "Justin"
     1
-  elsif key == "Ashley" || key == "Sera"
+  elsif key == "Brianna" || key == "Cory"
     2
+  elsif key == "Ilias" || key == "Alex" 
+    3
   #....
 ```
 
