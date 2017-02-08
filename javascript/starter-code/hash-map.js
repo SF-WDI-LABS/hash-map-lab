@@ -54,7 +54,7 @@ HashMap.prototype = {
   keySet: function() {
     return this.h_array
       .map(function (el) {
-        return el.list('k');
+        return el.listItems('k');
       })
       .filter(function (el2) {
         return el2 != undefined;
@@ -67,7 +67,7 @@ HashMap.prototype = {
   values: function() {
     return this.h_array
       .map(function(el) {
-        return el.list('v');
+        return el.listItems('v');
       })
       .filter(function (el2) {
         return el2 != undefined

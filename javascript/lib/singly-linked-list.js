@@ -101,9 +101,9 @@ List.prototype = {
 
   /*
     Method: find
-    Traverse the list. If a Node with the key passed is found, return a new 
-    object containing a key "key" with the key of the found Node and a key 
-    "value" with the data of the found Node. 
+    Traverse the list. If a Node with the key passed is found, return a new
+    object containing a key "key" with the key of the found Node and a key
+    "value" with the data of the found Node.
   */
   find: function(key) {
     var current = this.head;
@@ -118,7 +118,7 @@ List.prototype = {
     }
     return "Key/Value pair not found";
   },
-  
+
   /*
     Method: update(key, data)
     Traverse the List. Find the Node with key key and update its data to data.
@@ -203,7 +203,7 @@ List.prototype = {
     }
   },
 
-  list: function(option) {
+  listItems: function(option) {
     var results = [];
     var current = this.head;
     var i = 0;
