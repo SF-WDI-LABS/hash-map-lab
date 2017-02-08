@@ -41,9 +41,12 @@ Hash maps are based on arrays. Each key is mapped to a slot in the array with a 
 
 ![](https://upload.wikimedia.org/wikipedia/commons/7/7d/Hash_table_3_1_1_0_1_0_0_SP.svg)
 
-When storing a key-value pair, we look up the hash of the key to check which index of the array it belongs in.  So if `hash('my key')` is `7`, we know to put that key in index 7.  
 
-When looking up a value by key, we use the hash to find the index corresponding to that key.   When we do `hash('my key')` and get `7`, we know all the information about that key should be in slot 7.
+The key is tied to the value for two purposes:
+
+**When storing a key-value pair**, we look up the hash of the key to check which index of the array it belongs in.  So if `hash('my key')` is `7`, we know to put that key in index 7.  
+
+**When looking up a value by key**, we use the hash to find the index corresponding to that key.   When we do `hash('my key')` and get `7`, we know all the information about that key should be in slot 7.
 
 Note that these hash functions can be reversible, unlike the "cryptographic hash functions" used to encrypt things.
 
