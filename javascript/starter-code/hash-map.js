@@ -1,4 +1,4 @@
-var SinglyLinkedList = require('./singly-linked-list.js');
+var SinglyLinkedList = require('../lib/singly-linked-list.js');
 
 /* Initialize an array of SinglyLinkedLists of length */
 var HashMap = function(length){
@@ -21,15 +21,15 @@ HashMap.prototype = {
     });
   },
 
-  toHash: function(key, arr_length) {
-    arr_length = arr_length | 13;
+  toHash: function(key, arrayLength) {
+    arrayLength = arrayLength || 13;
     return key
       .split('').map(function (letter){
         return letter.charCodeAt();
       })
       .reduce(function(prev, curr) {
         return prev + curr;
-      }) % arr_length;
+      }) % arrayLength;
   },
 
   // TODO: Update this method so that it doesn't allow adding duplicate keys
@@ -47,14 +47,14 @@ HashMap.prototype = {
     var arr_pos = this.toHash(key);
     return this.h_array[arr_pos].delete(key);
   },
-  
-  // Implement `set` function here! 
+
+  // TODO: Implement `set` function here!
   // It should change value associated with the `key` passed in, to the `value` passed in.
 
   keySet: function() {
     return this.h_array
       .map(function (el) {
-        return el.list('k');
+        return el.listItems('k');
       })
       .filter(function (el2) {
         return el2 != undefined;
@@ -67,7 +67,7 @@ HashMap.prototype = {
   values: function() {
     return this.h_array
       .map(function(el) {
-        return el.list('v');
+        return el.listItems('v');
       })
       .filter(function (el2) {
         return el2 != undefined
