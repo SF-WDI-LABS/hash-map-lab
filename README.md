@@ -30,6 +30,10 @@ Location: SF
 - Perform runtime analysis on the hash map data structure.
 
 
+### Interview Question
+
+Given an array `A` and a number `x`, determine whether or not there exist two elements in `A` whose sum is exactly `x`. Return the pair if there is a pair or `false` if there is not. 
+
 ### Hash Map Operations
 
 Hash maps let us add key-value pairs, look up the value for a key, and delete a key-value pair.  What's more, they let us do any of these operations in `O(1)` (constant) time!
@@ -53,14 +57,14 @@ Note that these hash functions can be reversible, unlike the "cryptographic hash
 
 ### Choosing a Hash Function
 
-Let's say we've decided to use an array size of 16.
+Let's say we've decided to use an array size of 13.
 
 
 Here's a hash function:
 
 ```js
 function hash(key){
-  return Math.floor(Math.random()*16);
+  return Math.floor(Math.random()*13);
 }
 ```
 
@@ -97,7 +101,7 @@ It's not very good.  **Why?** Hint: draw out the resulting structure after a few
 
 <details>
   <summary>click for explanation</summary>
-  This hash function sends all keys to the first bucket. We basically end up with a linked list!
+  This hash function sends all keys to the first bucket. We basically end up with a linked list! 
 </details>
 
 
@@ -150,7 +154,7 @@ Looking at some [data](http://home.uchicago.edu/~jsfalk/misc/baby_names/), we ca
 
 On the other hand, we could just say that all our keys will be below a certain number of characters - maybe 32 character is a reasonable limit for a first name. Then our `O(n)` from above is actually capped at `O(32)`, which is the same as `O(1)`. Setting a limit on the variable length turns it into a constant for this big O analysis.
 
-Because of how computers store data in binary format, we can also reduce the time it takes to run `%` by choosing an array length that's a power of 2. This doesn't affect the big O analysis, and in fact its practical effect is quite small.
+Because of how computers store data in binary format, we can also reduce the time it takes to run `%` by choosing an array length that's a power of 2. However, to avoid collisions, many people recommend using a prime number. Java uses 31. 
 </details>
 
 Of course, if we knew ahead of time exactly which developers we'd need to hash, we could make a perfect hashing function that's `O(1)`, distributes names evenly, and always gives the same results for the same input:
